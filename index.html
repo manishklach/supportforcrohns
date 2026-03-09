@@ -472,7 +472,8 @@ Join us
 			<div class="gva-element-gva-rev-slider gva-element">
 				<style>
 				.custom-hero-carousel{position:relative;min-height:738px;overflow:hidden;background:#144047;color:#fff}
-				.custom-hero-carousel .hero-slide{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .6s ease;background-position:center;background-size:cover;background-repeat:no-repeat}
+				.custom-hero-carousel .hero-slide{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .6s ease}
+				.custom-hero-carousel .hero-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
 				.custom-hero-carousel .hero-slide.is-active{opacity:1;z-index:1}
 				.custom-hero-carousel .hero-slide::before{content:"";position:absolute;inset:0;background:rgba(12,61,69,.72)}
 				.custom-hero-carousel .hero-inner{position:relative;z-index:2;width:min(1170px,100%);padding:40px 72px 90px;text-align:left}
@@ -493,7 +494,8 @@ Join us
 				@media (max-width: 767px){.custom-hero-carousel{min-height:350px}.custom-hero-carousel .hero-inner{padding:24px 18px 56px}.custom-hero-carousel .hero-heart{width:25px;height:26px;margin-bottom:10px}.custom-hero-carousel .hero-title{font-size:50px;letter-spacing:-2px;margin-bottom:12px}.custom-hero-carousel .hero-desc{font-size:11px;line-height:1.4;margin-bottom:18px}.custom-hero-carousel .hero-cta{min-width:160px;height:56px;padding:0 22px;font-size:12px;letter-spacing:1.5px}.custom-hero-carousel .hero-arrow{width:38px;height:38px;font-size:30px}}
 				</style>
 				<div class="custom-hero-carousel" data-custom-hero-carousel>
-					<div class="hero-slide is-active" data-slide style="background-image:url('wp-content/uploads/2024/08/Untitled-design-5.jpg')">
+					<div class="hero-slide is-active" data-slide>
+						<img class="hero-media" src="wp-content/uploads/2024/08/Untitled-design-5.jpg" alt="">
 						<div class="hero-inner">
 							<img class="hero-heart" src="wp-content/uploads/2022/06/layer-1.png" alt="">
 							<h2 class="hero-title">Together for a<br>Crohn's-Free Future</h2>
@@ -501,7 +503,8 @@ Join us
 							<div class="hero-cta-wrap"><a class="hero-cta" href="podcast-page/index.html">Our Podcast</a></div>
 						</div>
 					</div>
-					<div class="hero-slide" data-slide style="background-image:url('wp-content/uploads/2024/08/Untitled-design-3-1.jpg')">
+					<div class="hero-slide" data-slide>
+						<img class="hero-media" src="wp-content/uploads/2024/08/Untitled-design-3-1.jpg" alt="">
 						<div class="hero-inner">
 							<img class="hero-heart" src="wp-content/uploads/2022/06/layer-1.png" alt="">
 							<h2 class="hero-title">Hope and Help</h2>
@@ -509,7 +512,8 @@ Join us
 							<div class="hero-cta-wrap"><a class="hero-cta" href="what-we-do/index.html">See Our Work</a></div>
 						</div>
 					</div>
-					<div class="hero-slide" data-slide style="background-image:url('wp-content/uploads/2024/08/Untitled-design-6.jpg')">
+					<div class="hero-slide" data-slide>
+						<img class="hero-media" src="wp-content/uploads/2024/08/Untitled-design-6.jpg" alt="">
 						<div class="hero-inner">
 							<img class="hero-heart" src="wp-content/uploads/2022/06/layer-1.png" alt="">
 							<h2 class="hero-title">Awareness Matters</h2>
@@ -563,6 +567,69 @@ Support Research, Awareness, and Patient Care.
 				</sr7-module>
 				<script>
 					SR7.PMH ??={}; SR7.PMH["SR7_1_1"] = {cn:0,state:false,fn: function() { if (_tpt!==undefined && _tpt.prepareModuleHeight !== undefined) {  _tpt.prepareModuleHeight({id:"SR7_1_1",el:[738,738,738,550,350],type:'standard',shdw:'0',gh:[738,738,738,550,350],gw:[1170,1170,1170,778,480],vpt:['-200px&#039;,&#039;-200px&#039;,&#039;-200px&#039;,&#039;-200px&#039;,&#039;-200px'],size:{fullWidth:false, fullHeight:false},mh:'0',onh:0,onw:0,bg:{color:'{"orig":"transparent","type":"solid","string":"transparent"}'},plType:'0',plColor:'#FFFFFF'});   SR7.PMH["SR7_1_1"].state=true;} else if((SR7.PMH["SR7_1_1"].cn++)<100)	setTimeout( SR7.PMH["SR7_1_1"].fn,19);}};SR7.PMH["SR7_1_1" ].fn();
+				</script>
+				<script>
+					(function () {
+						var carousel = document.querySelector('[data-custom-hero-carousel]');
+						if (!carousel) return;
+						var slides = Array.prototype.slice.call(carousel.querySelectorAll('[data-slide]'));
+						var bullets = Array.prototype.slice.call(carousel.querySelectorAll('.hero-bullet'));
+						var prev = carousel.querySelector('.hero-arrow.prev');
+						var next = carousel.querySelector('.hero-arrow.next');
+						if (!slides.length) return;
+						var index = slides.findIndex(function (slide) { return slide.classList.contains('is-active'); });
+						var timer = null;
+						if (index < 0) index = 0;
+
+						function render(nextIndex) {
+							index = (nextIndex + slides.length) % slides.length;
+							slides.forEach(function (slide, slideIndex) {
+								slide.classList.toggle('is-active', slideIndex === index);
+							});
+							bullets.forEach(function (bullet, bulletIndex) {
+								bullet.classList.toggle('is-active', bulletIndex === index);
+							});
+						}
+
+						function restartAutoplay() {
+							if (timer) window.clearInterval(timer);
+							timer = window.setInterval(function () {
+								render(index + 1);
+							}, 6000);
+						}
+
+						if (prev) {
+							prev.addEventListener('click', function () {
+								render(index - 1);
+								restartAutoplay();
+							});
+						}
+
+						if (next) {
+							next.addEventListener('click', function () {
+								render(index + 1);
+								restartAutoplay();
+							});
+						}
+
+						bullets.forEach(function (bullet, bulletIndex) {
+							bullet.addEventListener('click', function () {
+								render(bulletIndex);
+								restartAutoplay();
+							});
+						});
+
+						carousel.addEventListener('mouseenter', function () {
+							if (timer) window.clearInterval(timer);
+						});
+
+						carousel.addEventListener('mouseleave', function () {
+							restartAutoplay();
+						});
+
+						render(index);
+						restartAutoplay();
+					}());
 				</script>
 </div>		</div>
 				</div>
