@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -8,7 +8,7 @@
   <link rel="icon" href="wp-content/uploads/2024/08/cropped-C-32x32.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #f1f6f7;
@@ -31,14 +31,12 @@
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: "Manrope", Arial, sans-serif;
+      font-family: "Roboto", Arial, sans-serif;
       color: var(--ink);
-      background:
-        radial-gradient(circle at top left, rgba(15, 74, 82, 0.10), transparent 30%),
-        linear-gradient(180deg, #f7fbfb 0%, #eef5f4 100%);
+      background: #ffffff;
     }
 
-    h1, h2, h3, h4, .section-head h2 { font-family: "Manrope", Arial, sans-serif; }
+    h1, h2, h3, h4, .section-head h2 { font-family: "Roboto Slab", Georgia, serif; }
 
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
@@ -66,7 +64,7 @@
       top: 0;
       z-index: 20;
       backdrop-filter: blur(14px);
-      background: #f3f3f3;
+      background: #ffffff;
       border-bottom: 1px solid rgba(20, 64, 71, 0.08);
     }
     .site-header .shell {
@@ -74,7 +72,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 24px;
-      padding: 26px 0;
+      padding: 24px 0;
     }
     .brand img { width: 205px; }
     .nav {
@@ -94,7 +92,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 50px;
+      min-height: 54px;
       padding: 0 22px;
       border-radius: 0;
       border: 0;
@@ -112,8 +110,9 @@
       box-shadow: none;
     }
     .nav-cta {
-      min-width: 214px;
-      padding: 0 72px 0 30px;
+      min-width: 224px;
+      height: 54px;
+      padding: 0 78px 0 32px;
       justify-content: flex-start;
       position: relative;
       overflow: hidden;
@@ -125,15 +124,16 @@
       position: absolute;
       top: 0;
       right: 0;
-      width: 64px;
+      width: 62px;
       height: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #f3f3f3;
+      background: #ffffff;
       color: var(--orange);
       font-size: 20px;
       font-weight: 800;
+      border-left: 6px solid rgba(19, 137, 153, 0.18);
     }
     .button-secondary {
       background: #fff;
@@ -192,35 +192,25 @@
       gap: 18px;
     }
     .hero-heart {
-      width: 44px;
-      margin-bottom: 6px;
+      width: 38px;
+      margin-bottom: 10px;
     }
     .hero-kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 16px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.12);
-      backdrop-filter: blur(10px);
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-size: 11px;
-      font-weight: 800;
+      display: none;
     }
     .hero h1 {
       margin: 0;
-      max-width: 900px;
-      font-size: clamp(46px, 8vw, 100px);
-      line-height: 0.95;
-      letter-spacing: -0.05em;
+      max-width: 1120px;
+      font-size: clamp(54px, 7vw, 94px);
+      line-height: 1.02;
+      letter-spacing: -0.035em;
       text-transform: uppercase;
     }
     .hero p {
       margin: 0;
-      max-width: 900px;
-      font-size: clamp(16px, 2vw, 22px);
-      line-height: 1.45;
+      max-width: 1180px;
+      font-size: clamp(18px, 1.9vw, 26px);
+      line-height: 1.4;
       text-transform: uppercase;
     }
     .hero-actions {
@@ -268,8 +258,8 @@
     .hero-arrow.prev { left: 18px; }
     .hero-arrow.next { right: 18px; }
 
-    main section { padding: 96px 0; }
-    main section:nth-of-type(even) { background: var(--bg); }
+    main section { padding: 96px 0; background: #ffffff; }
+    main section:nth-of-type(even) { background: #ffffff; }
     .section-head {
       margin-bottom: 28px;
       max-width: 720px;
@@ -313,17 +303,20 @@
       box-shadow: var(--shadow);
     }
     .founder-card {
-      padding: 18px;
-      max-width: 470px;
+      padding: 0;
+      max-width: 520px;
       justify-self: center;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
     }
     .founder-card img {
-      border-radius: 22px;
+      border-radius: 0;
       width: 100%;
-      aspect-ratio: 0.84 / 1;
-      object-fit: cover;
-      object-position: top center;
-      max-height: 620px;
+      aspect-ratio: auto;
+      object-fit: contain;
+      object-position: center top;
+      max-height: 600px;
       margin: 0 auto;
     }
     .copy-card {
@@ -366,20 +359,24 @@
       flex-wrap: wrap;
     }
     .mini-features {
-      margin-top: 34px;
+      margin-top: 26px;
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 26px;
+      grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
+      gap: 96px;
+      align-items: center;
+      max-width: 980px;
+      margin-left: auto;
+      margin-right: auto;
     }
     .mini-feature {
       display: flex;
       align-items: center;
-      gap: 22px;
-      padding: 16px 10px;
+      gap: 24px;
+      padding: 0;
     }
     .mini-feature-icon {
-      width: 92px;
-      height: 92px;
+      width: 106px;
+      height: 106px;
       border-radius: 50%;
       background: rgba(19, 137, 153, 0.10);
       display: flex;
@@ -389,16 +386,24 @@
       overflow: hidden;
     }
     .mini-feature-icon img {
-      width: 60px;
-      height: 60px;
-      object-fit: contain;
+      width: 76px;
+      height: 76px;
+      object-fit: cover;
+      border-radius: 50%;
     }
     .mini-feature:nth-child(2) .mini-feature-icon {
       background: rgba(120, 50, 220, 0.10);
     }
+    .mini-feature:nth-child(2) {
+      justify-self: end;
+    }
+    .mini-feature:nth-child(2) .mini-feature-icon img {
+      object-fit: contain;
+      border-radius: 0;
+    }
     .mini-feature h3 {
       margin: 0;
-      font-size: clamp(28px, 3vw, 34px);
+      font-size: clamp(26px, 2.6vw, 34px);
       line-height: 1.2;
       letter-spacing: -0.03em;
     }
@@ -575,7 +580,7 @@
       font-size: 14px;
     }
 
-    .chat-fallback {
+    .chat-launcher {
       position: fixed;
       right: 28px;
       bottom: 108px;
@@ -583,8 +588,8 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 92px;
-      height: 92px;
+      width: 106px;
+      height: 106px;
       padding: 0;
       border-radius: 50%;
       background: #fff;
@@ -592,16 +597,98 @@
       border: 1px solid rgba(22,53,59,0.12);
       color: var(--ink);
       text-decoration: none;
+      cursor: pointer;
     }
-    .chat-fallback img {
+    .chat-launcher img {
       display: block;
       width: 58px;
       height: 58px;
       border-radius: 50%;
       object-fit: contain;
     }
-    .chat-fallback span {
+    .chat-panel {
+      position: fixed;
+      right: 28px;
+      bottom: 214px;
+      z-index: 31;
+      width: min(340px, calc(100vw - 32px));
+      background: #ffffff;
+      border-radius: 22px;
+      box-shadow: 0 18px 40px rgba(12, 56, 64, 0.24);
+      border: 1px solid rgba(20, 64, 71, 0.12);
+      overflow: hidden;
       display: none;
+    }
+    .chat-panel.open {
+      display: block;
+    }
+    .chat-panel-header {
+      background: #70aca9;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 16px 18px;
+    }
+    .chat-panel-header strong {
+      font-size: 18px;
+      letter-spacing: 0.01em;
+    }
+    .chat-close {
+      width: 40px;
+      height: 40px;
+      border: 0;
+      border-radius: 50%;
+      background: #ffffff;
+      color: #111111;
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+    }
+    .chat-panel-body {
+      padding: 18px;
+      color: var(--ink);
+    }
+    .chat-agent {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+    .chat-agent img {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: #deebe9;
+      padding: 4px;
+      object-fit: contain;
+    }
+    .chat-panel-body p {
+      margin: 0 0 16px;
+      line-height: 1.6;
+      color: #516062;
+    }
+    .chat-links {
+      display: grid;
+      gap: 10px;
+    }
+    .chat-link {
+      display: block;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: #f3f7f7;
+      border: 1px solid rgba(20, 64, 71, 0.08);
+      font-weight: 600;
+    }
+    .chat-link.primary {
+      background: #138999;
+      border-color: #138999;
+      color: #ffffff;
     }
 
     @media (max-width: 1100px) {
@@ -647,6 +734,10 @@
       .hero-arrow { display: none; }
       .mini-features {
         grid-template-columns: 1fr;
+        gap: 28px;
+      }
+      .mini-feature:nth-child(2) {
+        justify-self: start;
       }
       main section { padding: 72px 0; }
     }
@@ -666,6 +757,7 @@
         <img src="wp-content/uploads/2021/08/logo.png" alt="Support For Crohn's">
       </a>
       <nav class="nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
         <a href="about-me/index.html">About</a>
         <a href="podcast-page/index.html">Podcasts</a>
         <a href="what-we-do/index.html">What We Do</a>
@@ -755,7 +847,7 @@
       <div class="shell mini-features">
         <article class="mini-feature">
           <div class="mini-feature-icon">
-            <img src="wp-content/uploads/2024/08/icon-for-website-asd-1.png" alt="Promote awareness">
+            <img src="wp-content/uploads/2024/08/IMG_6209-1024x834-1-600x489.jpg" alt="Promote awareness">
           </div>
           <h3>Promote Awareness, Educate Public</h3>
         </article>
@@ -914,13 +1006,32 @@
         <a class="button button-primary" href="podcast-page/index.html">Podcast</a>
       </div>
     </div>
-    <div class="shell footer-bottom">© 2024 Copyrights | All Rights Reserved</div>
+    <div class="shell footer-bottom">© 2026 Copyrights | All Rights Reserved</div>
   </footer>
 
-  <a class="chat-fallback" href="contact/index.html" aria-label="Contact Support For Crohn's">
+  <div class="chat-panel" id="chat-panel" aria-label="Support chat">
+    <div class="chat-panel-header">
+      <strong>Support Agent</strong>
+      <button class="chat-close" id="chat-close" type="button" aria-label="Close chat">×</button>
+    </div>
+    <div class="chat-panel-body">
+      <div class="chat-agent">
+        <img src="wp-content/plugins/chatbot/images/icon-4.png" alt="Support icon">
+        <div>
+          <strong>How can we help?</strong>
+        </div>
+      </div>
+      <p>Use the options below to reach Support For Crohn's for questions, resources, or updates.</p>
+      <div class="chat-links">
+        <a class="chat-link primary" href="contact/index.html">Open contact page</a>
+        <a class="chat-link" href="mailto:supportforcrohns@gmail.com">Email supportforcrohns@gmail.com</a>
+      </div>
+    </div>
+  </div>
+
+  <button class="chat-launcher" id="chat-launcher" type="button" aria-label="Open support chat">
     <img src="wp-content/plugins/chatbot/images/icon-4.png" alt="Support icon">
-    <span>Need help?</span>
-  </a>
+  </button>
 
   <script>
     (function () {
@@ -975,9 +1086,31 @@
         window.location.href = 'mailto:supportforcrohns@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
       });
     }());
+
+    (function () {
+      var launcher = document.getElementById('chat-launcher');
+      var panel = document.getElementById('chat-panel');
+      var close = document.getElementById('chat-close');
+      if (!launcher || !panel || !close) return;
+
+      launcher.addEventListener('click', function () {
+        panel.classList.toggle('open');
+      });
+
+      close.addEventListener('click', function () {
+        panel.classList.remove('open');
+      });
+
+      document.addEventListener('click', function (event) {
+        if (!panel.classList.contains('open')) return;
+        if (panel.contains(event.target) || launcher.contains(event.target)) return;
+        panel.classList.remove('open');
+      });
+    }());
   </script>
 </body>
 </html>
+
 
 
 
