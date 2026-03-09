@@ -1016,7 +1016,7 @@ Podcast
 
                                         <img src="../chatbot-assets/icon-4.png"
 
-                         alt="wpChatIcon" qcld_agent="../chatbot-assets/icon-4.png" >
+                         alt="wpChatIcon" qcld_agent="../chatbot-assets/icon-4.png" data-agent-avatar="../chatbot-assets/agent-0.png" >
 
                     
 
@@ -1164,7 +1164,7 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
     ball.classList.toggle('chatbot-close-state', isOpen);
     if (ballImg) {
       if (!ballImg.getAttribute('data-agent-src')) {
-        ballImg.setAttribute('data-agent-src', '../chatbot-assets/agent-0.png');
+        ballImg.setAttribute('data-agent-src', ballImg.getAttribute('data-agent-avatar') || '../chatbot-assets/agent-0.png');
       }
       if (!ballImg.getAttribute('data-launcher-src')) {
         ballImg.setAttribute('data-launcher-src', '../chatbot-assets/icon-4.png');
