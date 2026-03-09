@@ -2,13 +2,13 @@
 	<service>
 		<engineName>WordPress</engineName>
 		<engineLink>https://wordpress.org/</engineLink>
-		<homePageLink>https://supportforcrohns.org</homePageLink>
+		<homePageLink>supportforcrohns.org/index.html</homePageLink>
 		<apis>
-			<api name="WordPress" blogID="1" preferred="true" apiLink="https://supportforcrohns.org/xmlrpc.php" />
-			<api name="Movable Type" blogID="1" preferred="false" apiLink="https://supportforcrohns.org/xmlrpc.php" />
-			<api name="MetaWeblog" blogID="1" preferred="false" apiLink="https://supportforcrohns.org/xmlrpc.php" />
-			<api name="Blogger" blogID="1" preferred="false" apiLink="https://supportforcrohns.org/xmlrpc.php" />
-				<api name="WP-API" blogID="1" preferred="false" apiLink="https://supportforcrohns.org/wp-json/" />
+			<api name="WordPress" blogID="1" preferred="true" apiLink="supportforcrohns.org/index.html/xmlrpc.php" />
+			<api name="Movable Type" blogID="1" preferred="false" apiLink="supportforcrohns.org/index.html/xmlrpc.php" />
+			<api name="MetaWeblog" blogID="1" preferred="false" apiLink="supportforcrohns.org/index.html/xmlrpc.php" />
+			<api name="Blogger" blogID="1" preferred="false" apiLink="supportforcrohns.org/index.html/xmlrpc.php" />
+				<api name="WP-API" blogID="1" preferred="false" apiLink="supportforcrohns.org/wp-json/index.html" />
 			</apis>
 	</service>
 </rsd>
