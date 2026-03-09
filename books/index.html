@@ -182,6 +182,128 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 </style>
 <link rel='stylesheet' id='qcld-wp-chatbot-style-css' href='../wp-content/plugins/chatbot/templates/template-01/style__3a9eea0ba761.css' type='text/css' media='screen' />
 
+<style id="static-contact-chat-widget">
+#wp-chatbot-chat-container {
+  display: none !important;
+}
+.contact-chat-launcher {
+  position: fixed;
+  right: 28px;
+  bottom: 32px;
+  z-index: 99999;
+  width: 92px;
+  height: 92px;
+  border: 0;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 8px 28px rgba(12, 56, 64, 0.24);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+}
+.contact-chat-launcher img,
+.contact-chat-launcher span {
+  width: 58px;
+  height: 58px;
+}
+.contact-chat-launcher span {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 52px;
+  line-height: 1;
+  color: #111111;
+}
+.contact-chat-launcher.open img {
+  display: none;
+}
+.contact-chat-launcher.open span {
+  display: inline-flex;
+}
+.contact-chat-panel {
+  position: fixed;
+  right: 28px;
+  bottom: 138px;
+  z-index: 99998;
+  width: min(360px, calc(100vw - 32px));
+  background: #deebe9;
+  border-radius: 10px;
+  box-shadow: 0 18px 40px rgba(12, 56, 64, 0.24);
+  overflow: hidden;
+  display: none;
+}
+.contact-chat-panel.open {
+  display: block;
+}
+.contact-chat-panel-header {
+  background: #70aca9;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 18px;
+}
+.contact-chat-panel-header strong {
+  font-size: 18px;
+}
+.contact-chat-close {
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #111111;
+  font-size: 34px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+}
+.contact-chat-panel-body {
+  padding: 18px;
+  color: #144047;
+}
+.contact-chat-agent {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+.contact-chat-agent img {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  object-fit: contain;
+  background: #70aca9;
+  padding: 4px;
+}
+.contact-chat-panel-body p {
+  margin: 0 0 14px;
+  line-height: 1.6;
+}
+.contact-chat-links {
+  display: grid;
+  gap: 10px;
+}
+.contact-chat-link {
+  display: block;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid rgba(20,64,71,0.08);
+  font-weight: 600;
+}
+.contact-chat-link.primary {
+  background: #138999;
+  color: #ffffff;
+  border-color: #138999;
+}
+</style>
 </head>
 
 <body class="wp-singular page-template-default page page-id-5642 wp-theme-paroti paroti-body-loading elementor-default elementor-kit-7 elementor-page elementor-page-5642">
@@ -937,17 +1059,6 @@ var wpcf7 = {"api":{"root":"../wp-json/index.html","namespace":"contact-form-7/v
 </script>
 <script type="text/javascript" src="../wp-content/plugins/contact-form-7/includes/js/index__e2db5cb4b20c.js" id="contact-form-7-js"></script>
 <script type="text/javascript" src="../wp-content/plugins/paroti-themer/assets/js/main.js" id="gavias-themer-js"></script>
-<script type="text/javascript" src="../wp-content/plugins/chatbot/js/jquery.slimscroll.min__3a9eea0ba761.js" id="qcld-wp-chatbot-slimscroll-js-js"></script>
-<script type="text/javascript" src="../wp-content/plugins/chatbot/js/jquery.cookie__3a9eea0ba761.js" id="qcld-wp-chatbot-jquery-cookie-js"></script>
-<script type="text/javascript" src="../wp-content/plugins/chatbot/js/jquery.magnific-popup.min__3a9eea0ba761.js" id="qcld-wp-chatbot-magnify-popup-js"></script>
-<script type="text/javascript" src="../wp-content/plugins/chatbot/js/qcld-wp-chatbot-plugin__3a9eea0ba761.js" id="qcld-wp-chatbot-plugin-js"></script>
-<script type="text/javascript" id="qcld-wp-chatbot-front-js-js-extra">
-/* <![CDATA[ */
-var wp_chatbot_obj = {"wp_chatbot_position_x":"50","wp_chatbot_position_y":"200","disable_icon_animation":"","disable_featured_product":"","disable_product_search":"","disable_catalog":"","disable_order_status":"","disable_sale_product":"","open_product_detail":"","order_user":"login","ajax_url":"../wp-admin/admin-ajax.php","image_path":"../wp-content/plugins/chatbot/images/","yes":"YES","no":"NO","or":"OR","host":"../www.supportforcrohns.org/index.html","agent":"Crohn's Advisor","agent_image":"agent-0.png","agent_image_path":"../wp-content/plugins/chatbot/images/agent-0.png","shopper_demo_name":"Amigo","agent_join":["has joined the conversation"],"welcome":["Hello! Please ask only general questions about Crohn&#039;s disease but no medical advice. Please always consult a doctor or a medical professional."],"welcome_back":["Welcome back"],"hi_there":["Hi There!"],"hello":["Hi There!"],"asking_name":["What should I call you?"],"i_am":["I am"],"name_greeting":["Nice to meet you"],"wildcard_msg":["How can we help?"],"empty_filter_msg":["Sorry, I did not understand you."],"did_you_mean":["Did you mean?"],"is_typing":["is typing..."],"send_a_msg":["Send a message."],"viewed_products":[""],"shopping_cart":[""],"cart_updating":[""],"cart_removing":[""],"imgurl":"../wp-content/plugins/chatbot/images/","sys_key_help":"start","sys_key_product":"","sys_key_catalog":"","sys_key_order":"","sys_key_support":"faq","sys_key_reset":"reset","sys_key_email":"email","help_welcome":["Welcome to Help Section."],"back_to_start":["Back to Start"],"help_msg":["\u003Cb\u003EType and Hit Enter\u003C/b\u003E\u003Cbr\u003E\u003Cul\u003E\u003Cli\u003E \u003Cb\u003Estart\u003C/b\u003E to Get back to the main menu. \u003C/li\u003E\u003Cli\u003E \u003Cb\u003Efaq\u003C/b\u003E for FAQ. \u003C/li\u003E\u003Cli\u003E \u003Cb\u003Eemail \u003C/b\u003E to send eMail \u003C/li\u003E\u003Cli\u003E \u003Cb\u003Ereset\u003C/b\u003E to restart the chat\u003C/li\u003E\u003C/ul\u003E"],"reset":["Do you want to clear our chat history and start over?"],"wildcard_product":[""],"wildcard_catalog":[""],"featured_products":[""],"sale_products":[""],"wildcard_order":[""],"wildcard_support":"FAQ","product_asking":[""],"product_suggest":[""],"product_infinite":[""],"product_success":["Great! We have these products for","Found these products for"],"product_fail":["Sorry, I found nothing"],"support_welcome":["Welcome to FAQ Section"],"support_email":"Send us Email","support_option_again":["You may choose option from below."],"asking_email":["Please provide your email address"],"asking_msg":["Thank you for email address. Please write your message now."],"no_result":[""],"support_phone":"Leave your number. We will call you back!","asking_phone":["Please provide your Phone number"],"thank_for_phone":["Thank you for Phone number"],"support_query":["What is SupportForCrohns?                         ","Who is the founder of SupportForCrohns?                      ","What can I expect from SupportForCrohns?                      ","Where are the most recent podcasts?                      ","Where can I read about it?                      ","How do I join the support group?                      ","What does this non-profit do? ","Are support group meetings recorded? ","Is my data being used to train the chatbot? ","Is this for a school project? ","Is this non-profit a 501c(3)?"],"support_ans":["Support For Crohn\u2019s is a 501 (c) (3) designated non profit organization.We are driven by a single goal- to bring resources about Crohns to people who do not have access to it or do no know where to begin.We also aim to provide a safe space for individuals with Crohn\u2019s disease to share their experiences and connect with others.","Anya Lachwani","You can expect to:\r\n\r\nLearn about experiences with autoimmune diseases\r\nLearn about recent technologies and medical advancements in Crohn\u2019s Disease\r\nLearn from Medical Professionals\r\nListen to what the experts have to say","../podcast-page/index.html","index.html","Email us at :supportforcrohns@gmail.com\r\n\r\nWe will send you information about our next support group meeting. You can join, hear and share your experiences.Its all FREE!","On this site you can expect to:\r\nLearn about experiences with autoimmune diseases\r\nLearn about recent technologies and medical advancements in Crohn\u2019s Disease\r\nLearn from Medical Professionals\r\nListen to what the experts have to say at your own time\r\nJoin support groups and share your experiences with no worry about being recorded.","No- we do not record any support group meetings or take pictures.","No, not at all. Your questions are not being used to train the chatbot.","No, it is stemming from personal experience. Read more about why it was founded at:\r\n\r\n../index.html#:~:text=AI%20Chatbot-,Founder%E2%80%99s%20Message%3A,-I%20am%20Anya","Yes it is."],"notification_interval":"","notifications":[""],"order_welcome":[""],"order_username_asking":[""],"order_username_password":[""],"order_login":"","is_chat_session_active":"0","order_nonce":"bc64164cdd","order_email_support":[""],"email_fail":"Sorry! I could not send your mail! Please contact the webmaster.","invalid_email":["Sorry, Email address is not valid! Please provide a valid email."],"stop_words":"a,able,about,above,abst,accordance,according,accordingly,across,act,actually,added,adj,affected,affecting,affects,after,afterwards,again,against,ah,all,almost,alone,along,already,also,although,always,am,among,amongst,an,and,announce,another,any,anybody,anyhow,anymore,anyone,anything,anyway,anyways,anywhere,apparently,approximately,are,aren,arent,arise,around,as,aside,ask,asking,at,auth,available,away,awfully,b,back,be,became,because,become,becomes,becoming,been,before,beforehand,begin,beginning,beginnings,begins,behind,being,believe,below,beside,besides,between,beyond,biol,both,brief,briefly,but,by,c,ca,came,can,cannot,can't,cause,causes,certain,certainly,co,com,come,comes,contain,containing,contains,could,couldnt,d,date,did,didn't,different,do,does,doesn't,doing,done,don't,down,downwards,due,during,e,each,ed,edu,effect,eg,eight,eighty,either,else,elsewhere,end,ending,enough,especially,et,et-al,etc,even,ever,every,everybody,everyone,everything,everywhere,ex,except,f,far,few,ff,fifth,first,five,fix,followed,following,follows,for,former,formerly,forth,found,four,from,further,furthermore,g,gave,get,gets,getting,give,given,gives,giving,go,goes,gone,got,gotten,h,had,happens,hardly,has,hasn't,have,haven't,having,he,hed,hence,her,here,hereafter,hereby,herein,heres,hereupon,hers,herself,hes,hi,hid,him,himself,his,hither,home,how,howbeit,however,hundred,i,id,ie,if,i'll,im,immediate,immediately,importance,important,in,inc,indeed,index,information,instead,into,invention,inward,is,isn't,it,itd,it'll,its,itself,i've,j,just,k,keep,keeps,kept,kg,km,know,known,knows,l,largely,last,lately,later,latter,latterly,least,less,lest,let,lets,like,liked,likely,line,little,'ll,look,looking,looks,ltd,m,made,mainly,make,makes,many,may,maybe,me,mean,means,meantime,meanwhile,merely,mg,might,million,miss,ml,more,moreover,most,mostly,mr,mrs,much,mug,must,my,myself,n,na,name,namely,nay,nd,near,nearly,necessarily,necessary,need,needs,neither,never,nevertheless,new,next,nine,ninety,no,nobody,non,none,nonetheless,noone,nor,normally,nos,not,noted,nothing,now,nowhere,o,obtain,obtained,obviously,of,off,often,oh,ok,okay,old,omitted,on,once,one,ones,only,onto,or,ord,other,others,otherwise,ought,our,ours,ourselves,out,outside,over,overall,owing,own,p,page,pages,part,particular,particularly,past,per,perhaps,placed,please,plus,poorly,possible,possibly,potentially,pp,predominantly,present,previously,primarily,probably,promptly,proud,provides,put,q,que,quickly,quite,qv,r,ran,rather,rd,re,readily,really,recent,recently,ref,refs,regarding,regardless,regards,related,relatively,research,respectively,resulted,resulting,results,right,run,s,said,same,saw,say,saying,says,sec,section,see,seeing,seem,seemed,seeming,seems,seen,self,selves,sent,seven,several,shall,she,shed,she'll,shes,should,shouldn't,show,showed,shown,showns,shows,significant,significantly,similar,similarly,since,six,slightly,so,some,somebody,somehow,someone,somethan,something,sometime,sometimes,somewhat,somewhere,soon,sorry,specifically,specified,specify,specifying,still,stop,strongly,sub,substantially,successfully,such,sufficiently,suggest,sup,sure,t,take,taken,taking,tell,tends,th,than,thank,thanks,thanx,that,that'll,thats,that've,the,their,theirs,them,themselves,then,thence,there,thereafter,thereby,thered,therefore,therein,there'll,thereof,therere,theres,thereto,thereupon,there've,these,they,theyd,they'll,theyre,they've,think,this,those,thou,though,thoughh,thousand,throug,through,throughout,thru,thus,til,tip,to,together,too,took,toward,towards,tried,tries,truly,try,trying,ts,twice,two,u,un,under,unfortunately,unless,unlike,unlikely,until,unto,up,upon,ups,us,use,used,useful,usefully,usefulness,uses,using,usually,v,value,various,'ve,very,via,viz,vol,vols,vs,w,want,wants,was,wasnt,way,we,wed,welcome,we'll,went,were,werent,we've,what,whatever,what'll,whats,when,whence,whenever,where,whereafter,whereas,whereby,wherein,wheres,whereupon,wherever,whether,which,while,whim,whither,who,whod,whoever,whole,who'll,whom,whomever,whos,whose,why,widely,willing,wish,with,within,without,wont,words,world,would,wouldnt,www,x,y,yes,yet,you,youd,you'll,your,youre,yours,yourself,yourselves,you've,z,zero","currency_symbol":"","enable_messenger":"","messenger_label":[""],"fb_page_id":"","enable_skype":"","enable_whats":"","whats_label":[""],"whats_num":"","ret_greet":"","enable_exit_intent":"","exit_intent_msg":"","exit_intent_once":"","enable_scroll_open":"","scroll_open_msg":"","scroll_open_percent":"","scroll_open_once":"","enable_auto_open":"","auto_open_msg":"","auto_open_time":"","auto_open_once":"","proactive_bg_color":"","disable_feedback":"","disable_faq":"","feedback_label":[""],"enable_meta_title":"","meta_label":"","phone_number":"","disable_site_search":"1","search_keyword":"Please enter your keyword for searching","ajax_nonce":"e473210b01","site_search":"","call_gen":"1","call_sup":"","enable_ret_sound":"","found_result_message":"I have found these results","enable_ret_user_show":"","enable_inactive_time_show":"","ret_inactive_user_once":"","mobile_full_screen":"1","botpreloadingtime":"100","inactive_time":"","checkout_msg":"","ai_df_enable":"","ai_df_token":"","df_defualt_reply":"Sorry, I did not understand you. You may browse","df_agent_lan":"en","openai_enabled":"1","start_menu":"","conversation_form_ids":[],"conversation_form_names":[],"simple_response_intent":[],"forms":[],"form_ids":[],"form_commands":[],"df_api_version":"v2","v2_client_url":"../index.html?action=qcld_dfv2_api","show_menu_after_greetings":"1","current_user_id":"0"};
-//# sourceURL=qcld-wp-chatbot-front-js-js-extra
-/* ]]> */
-</script>
-<script type="text/javascript" src="../wp-content/plugins/chatbot/js/qcld-wp-chatbot-front__3a9eea0ba761.js" id="qcld-wp-chatbot-front-js-js"></script>
 <script type="text/javascript" src="../wp-content/plugins/paroti-themer/elementor/assets/libs/swiper/swiper.min__8a5471f88ca9.js" id="swiper-js"></script>
 <script type="text/javascript" src="../wp-content/plugins/paroti-themer/elementor/assets/libs/typed.min__8a5471f88ca9.js" id="typed-js"></script>
 <script type="text/javascript" src="../wp-content/plugins/paroti-themer/elementor/assets/main__8a5471f88ca9.js" id="gavias.elements-js"></script>
@@ -973,6 +1084,57 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(window._wpemojiSettings=a,"wpEmojiSettingsSupports"),s=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const a=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===a[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,a){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!a(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,a){let r;const o=(r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),s=(o.textBaseline="top",o.font="600 32px Arial",{});return e.forEach(e=>{s[e]=t(o,e,n,a)}),s}function r(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}a.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),c.toString(),p.toString()].join(",")+"));",a=new Blob([e],{type:"text/javascript"});const r=new Worker(URL.createObjectURL(a),{name:"wpTestEmojiSupports"});return void(r.onmessage=e=>{i(n=e.data),r.terminate(),t(n)})}catch(e){}i(n=f(s,u,c,p))}t(n)}).then(e=>{for(const n in e)a.supports[n]=e[n],a.supports.everything=a.supports.everything&&a.supports[n],"flag"!==n&&(a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&a.supports[n]);var t;a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&!a.supports.flag,a.supports.everything||((t=a.source||{}).concatemoji?r(t.concatemoji):t.wpemoji&&t.twemoji&&(r(t.twemoji),r(t.wpemoji)))});
 //# sourceURL=../index.htmlwp-includes/js/wp-emoji-loader.min.js
 /* ]]> */
+</script>
+
+<div class="contact-chat-panel" id="contact-chat-panel" aria-label="Support chat">
+  <div class="contact-chat-panel-header">
+    <strong>Support Agent</strong>
+    <button class="contact-chat-close" id="contact-chat-close" type="button" aria-label="Close chat">×</button>
+  </div>
+  <div class="contact-chat-panel-body">
+    <div class="contact-chat-agent">
+      <img src="../chatbot-assets/agent-0.png" alt="Support agent">
+      <div><strong>How can we help?</strong></div>
+    </div>
+    <p>Reach out for support group updates, podcast information, or general questions about Support For Crohn's.</p>
+    <div class="contact-chat-links">
+      <a class="contact-chat-link primary" href="mailto:supportforcrohns@gmail.com?subject=Support%20For%20Crohns">Email supportforcrohns@gmail.com</a>
+      <a class="contact-chat-link" href="../podcast-page/index.html">Open podcast page</a>
+      <a class="contact-chat-link" href="../what-we-do/index.html">See what we do</a>
+    </div>
+  </div>
+</div>
+
+<button class="contact-chat-launcher" id="contact-chat-launcher" type="button" aria-label="Open support chat">
+  <img src="../chatbot-assets/icon-4.png" alt="Support chat">
+  <span aria-hidden="true">×</span>
+</button>
+
+<script>
+(function () {
+  var launcher = document.getElementById('contact-chat-launcher');
+  var panel = document.getElementById('contact-chat-panel');
+  var close = document.getElementById('contact-chat-close');
+  if (!launcher || !panel || !close) return;
+
+  function closePanel() {
+    panel.classList.remove('open');
+    launcher.classList.remove('open');
+  }
+
+  launcher.addEventListener('click', function () {
+    var next = !panel.classList.contains('open');
+    panel.classList.toggle('open', next);
+    launcher.classList.toggle('open', next);
+  });
+
+  close.addEventListener('click', closePanel);
+
+  document.addEventListener('click', function (event) {
+    if (panel.contains(event.target) || launcher.contains(event.target)) return;
+    closePanel();
+  });
+}());
 </script>
 
 </body>
