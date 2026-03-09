@@ -215,6 +215,35 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
   font-weight: 400;
   color: #111111;
 }
+#wp-chatbot-ball {
+  position: relative;
+}
+#wp-chatbot-ball.chatbot-close-state .wp-chatbot-ball {
+  background: #ffffff !important;
+}
+#wp-chatbot-ball.chatbot-close-state img,
+#wp-chatbot-ball.chatbot-close-state .wp-chatbot-ball-animator {
+  opacity: 0 !important;
+}
+#wp-chatbot-ball.chatbot-close-state::before {
+  content: "×";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 74px;
+  line-height: 1;
+  font-weight: 300;
+  color: #111111;
+  z-index: 2;
+  pointer-events: none;
+}
+#wp-chatbot-ball img[qcld_agent] {
+  object-fit: contain;
+}
 </style>
 
 </head>
@@ -1125,13 +1154,48 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
       }
     });
   }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', patchChatClose);
-  } else {
-    patchChatClose();
+
+  function syncLauncherState() {
+    var board = document.getElementById('wp-chatbot-board-container');
+    var ball = document.getElementById('wp-chatbot-ball');
+    var ballImg = ball ? ball.querySelector('img[qcld_agent]') : null;
+    if (!board || !ball) return;
+    var isOpen = board.classList.contains('active-chat-board');
+    ball.classList.toggle('chatbot-close-state', isOpen);
+    if (ballImg) {
+      if (!ballImg.getAttribute('data-agent-src')) {
+        ballImg.setAttribute('data-agent-src', '../wp-content/plugins/chatbot/images/agent-0.png');
+      }
+      if (!ballImg.getAttribute('data-launcher-src')) {
+        ballImg.setAttribute('data-launcher-src', '../wp-content/plugins/chatbot/images/icon-4.png');
+      }
+      ballImg.setAttribute('src', isOpen ? ballImg.getAttribute('data-launcher-src') : ballImg.getAttribute('data-agent-src'));
+    }
   }
-  window.addEventListener('load', patchChatClose);
-  window.setTimeout(patchChatClose, 1200);
+
+  function patchChatUi() {
+    patchChatClose();
+    syncLauncherState();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', patchChatUi);
+  } else {
+    patchChatUi();
+  }
+  window.addEventListener('load', patchChatUi);
+  window.setTimeout(patchChatUi, 400);
+  window.setTimeout(patchChatUi, 1200);
+  window.setTimeout(patchChatUi, 2200);
+
+  var board = document.getElementById('wp-chatbot-board-container');
+  if (board && 'MutationObserver' in window) {
+    new MutationObserver(syncLauncherState).observe(board, { attributes: true, attributeFilter: ['class'] });
+  }
+
+  document.addEventListener('click', function () {
+    window.setTimeout(patchChatUi, 30);
+  });
 }());
 </script>
 
