@@ -191,9 +191,20 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 </style>
 <link rel='stylesheet' id='qcld-wp-chatbot-style-css' href='wp-content/plugins/chatbot/templates/template-01/style__3a9eea0ba761.css' type='text/css' media='screen' />
 
+<style>
+.paroti-page-loading{display:none !important;opacity:0 !important;visibility:hidden !important;pointer-events:none !important}
+body.paroti-body-loading{overflow:auto !important}
+</style>
+<script>
+window.addEventListener('load', function () {
+  document.body.classList.remove('paroti-body-loading');
+  var loader = document.querySelector('.paroti-page-loading');
+  if (loader) loader.remove();
+});
+</script>
 </head>
 
-<body class="home wp-singular page-template-default page page-id-18 wp-theme-paroti paroti-body-loading elementor-default elementor-kit-7 elementor-page elementor-page-18">
+<body class="home wp-singular page-template-default page page-id-18 wp-theme-paroti elementor-default elementor-kit-7 elementor-page elementor-page-18">
 	  <div class="paroti-page-loading"></div>
 	
 	<div class="wrapper-page"> <!--page-->
@@ -1889,3 +1900,4 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
 
 </body>
 </html>
+
