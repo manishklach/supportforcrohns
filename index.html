@@ -296,6 +296,11 @@
       align-items: center;
     }
     .founder-grid { align-items: start; }
+    .founder-side {
+      display: grid;
+      justify-items: start;
+      gap: 24px;
+    }
     .panel {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -304,8 +309,8 @@
     }
     .founder-card {
       padding: 0;
-      max-width: 520px;
-      justify-self: center;
+      max-width: 420px;
+      justify-self: start;
       background: transparent;
       border: 0;
       box-shadow: none;
@@ -316,7 +321,7 @@
       aspect-ratio: auto;
       object-fit: contain;
       object-position: center top;
-      max-height: 600px;
+      max-height: 420px;
       margin: 0 auto;
     }
     .copy-card {
@@ -359,24 +364,25 @@
       flex-wrap: wrap;
     }
     .mini-features {
-      margin-top: 26px;
+      margin-top: 0;
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
-      gap: 96px;
+      grid-template-columns: minmax(0, 1fr) minmax(180px, 220px);
+      gap: 34px;
       align-items: center;
-      max-width: 980px;
-      margin-left: auto;
-      margin-right: auto;
+      width: 100%;
+      max-width: 520px;
+      margin-left: 0;
+      margin-right: 0;
     }
     .mini-feature {
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: 16px;
       padding: 0;
     }
     .mini-feature-icon {
-      width: 106px;
-      height: 106px;
+      width: 52px;
+      height: 52px;
       border-radius: 50%;
       background: rgba(19, 137, 153, 0.10);
       display: flex;
@@ -386,8 +392,8 @@
       overflow: hidden;
     }
     .mini-feature-icon img {
-      width: 76px;
-      height: 76px;
+      width: 44px;
+      height: 44px;
       object-fit: cover;
       border-radius: 50%;
     }
@@ -403,9 +409,9 @@
     }
     .mini-feature h3 {
       margin: 0;
-      font-size: clamp(26px, 2.6vw, 34px);
-      line-height: 1.2;
-      letter-spacing: -0.03em;
+      font-size: clamp(16px, 2vw, 24px);
+      line-height: 1.15;
+      letter-spacing: -0.025em;
     }
 
     .feature-band {
@@ -734,7 +740,8 @@
       .hero-arrow { display: none; }
       .mini-features {
         grid-template-columns: 1fr;
-        gap: 28px;
+        gap: 16px;
+        max-width: 100%;
       }
       .mini-feature:nth-child(2) {
         justify-self: start;
@@ -822,8 +829,24 @@
   <main>
     <section>
       <div class="shell founder-grid">
-        <div class="panel founder-card">
-          <img src="wp-content/uploads/2024/08/Black-And-White-Aesthetic-Minimalist-Modern-Simple-Typography-Coconut-Cosme_20240815_215334_0000-e1755293989155.png" alt="Anya Lachwani">
+        <div class="founder-side">
+          <div class="panel founder-card">
+            <img src="wp-content/uploads/2024/08/Black-And-White-Aesthetic-Minimalist-Modern-Simple-Typography-Coconut-Cosme_20240815_215334_0000-e1755293989155.png" alt="Anya Lachwani">
+          </div>
+          <div class="mini-features">
+            <article class="mini-feature">
+              <div class="mini-feature-icon">
+                <img src="wp-content/uploads/2024/08/IMG_6209-1024x834-1-600x489.jpg" alt="Promote awareness">
+              </div>
+              <h3>Promote Awareness,<br>Educate Public</h3>
+            </article>
+            <article class="mini-feature">
+              <div class="mini-feature-icon">
+                <img src="wp-content/plugins/chatbot/images/tab-btn-icon.png" alt="AI chatbot">
+              </div>
+              <h3>AI Chatbot</h3>
+            </article>
+          </div>
         </div>
         <div class="copy-card">
           <div class="section-head">
@@ -843,20 +866,6 @@
             <a class="button button-ghost" href="books/index.html">My Book on Crohn's</a>
           </div>
         </div>
-      </div>
-      <div class="shell mini-features">
-        <article class="mini-feature">
-          <div class="mini-feature-icon">
-            <img src="wp-content/uploads/2024/08/IMG_6209-1024x834-1-600x489.jpg" alt="Promote awareness">
-          </div>
-          <h3>Promote Awareness, Educate Public</h3>
-        </article>
-        <article class="mini-feature">
-          <div class="mini-feature-icon">
-            <img src="wp-content/plugins/chatbot/images/tab-btn-icon.png" alt="AI chatbot">
-          </div>
-          <h3>AI Chatbot</h3>
-        </article>
       </div>
     </section>
 

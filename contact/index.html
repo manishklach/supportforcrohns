@@ -182,6 +182,41 @@ h1:where(.wp-block-heading).has-background,h2:where(.wp-block-heading).has-backg
 </style>
 <link rel='stylesheet' id='qcld-wp-chatbot-style-css' href='../wp-content/plugins/chatbot/templates/template-01/style__3a9eea0ba761.css' type='text/css' media='screen' />
 
+
+<style id="static-chat-close-fix">
+#wp-chatbot-desktop-close,
+#wp-chatbot-mobile-close {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #111111 !important;
+}
+#wp-chatbot-desktop-close .dashicons,
+#wp-chatbot-mobile-close .dashicons,
+#wp-chatbot-desktop-close i,
+#wp-chatbot-mobile-close i {
+  opacity: 0 !important;
+}
+#wp-chatbot-desktop-close::before,
+#wp-chatbot-mobile-close::before {
+  content: "×";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34px;
+  line-height: 1;
+  font-weight: 400;
+  color: #111111;
+}
+</style>
+
 </head>
 
 <body class="wp-singular page-template-default page page-id-22 wp-theme-paroti paroti-body-loading elementor-default elementor-kit-7 elementor-page elementor-page-22">
@@ -1069,6 +1104,34 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
 ');
     window.location.href = 'mailto:supportforcrohns@gmail.com?subject=' + encodeURIComponent(subject || 'Support For Crohns Contact') + '&body=' + encodeURIComponent(body);
   });
+}());
+</script>
+
+
+<script>
+(function () {
+  function patchChatClose() {
+    ['wp-chatbot-desktop-close', 'wp-chatbot-mobile-close'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      el.setAttribute('aria-label', 'Close chat');
+      el.setAttribute('title', 'Close');
+      el.innerHTML = '<span aria-hidden="true">×</span>';
+      var span = el.querySelector('span');
+      if (span) {
+        span.style.fontSize = '34px';
+        span.style.lineHeight = '1';
+        span.style.color = '#111';
+      }
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', patchChatClose);
+  } else {
+    patchChatClose();
+  }
+  window.addEventListener('load', patchChatClose);
+  window.setTimeout(patchChatClose, 1200);
 }());
 </script>
 
